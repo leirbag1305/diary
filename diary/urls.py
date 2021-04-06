@@ -21,5 +21,8 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('diary/', views.event_list),
-    path('', RedirectView.as_view(url='/diary/') )
+    path('', RedirectView.as_view(url='/diary/')),
+    path('login/', views.login_user),
+    path('login/submit', views.submit_login),
+    path('logout/', views.logout_user),
 ]
