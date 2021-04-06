@@ -33,3 +33,21 @@ def event_list(request):
     event = Event.objects.filter(user=user)
     data = {'events':event}
     return render(request, 'diary.html', data)
+
+@login_required(login_url='/login/')
+def event(request):
+    return render(request, 'event.html')
+
+@login_required(login_url='/login/')
+def submit_event(request):
+    if request.POST:
+        title = request.POST.get('title')
+        dt_event = request.POST.get('dt_event')
+        describe  = request.POST.get('describe')
+        user = request.user
+        Event.objects.create(title=title,
+                             dt_event = dt_event,
+                             describe = describe,
+                             user = user)
+
+    return  redirect('/')

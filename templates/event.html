@@ -1,0 +1,26 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+<h2> New Task</h2>
+
+<form action="submit" method="POST">{% csrf_token %}
+    <label>Title</label>
+    <br>
+    <input type="text" name="title" size="23">
+    <br>
+    <label>Task Date</label>
+    <br>
+    <input type="datetime-local" name="dt_event">
+    <br>
+    <label>Describe</label>
+    <br>
+    <textarea name="describe" rows="5" cols="24"></textarea>
+    <br>
+    <br>
+    <button type="submit">Save</button>
+    <a href="/">
+        <button type="button">Cancel</button>
+    </a>
+</form>
+{% endblock %}

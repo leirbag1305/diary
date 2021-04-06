@@ -2,7 +2,9 @@
 
 {% block content %}
     <h2>Schedules</h2>
-
+    <a href="event/">
+        <button type="button">New Task</button>
+    </a>
     <ul style="font-size: 18px">
         {% for event in events %}
             <li>{{ event.title }} - {{event.get_dt_event}}</li>
