@@ -5,17 +5,22 @@
 <h2> New Task</h2>
 
 <form action="submit" method="POST">{% csrf_token %}
+    <input type="number" name="id_event" value="{{ event.id }}" hidden>
     <label>Title</label>
     <br>
-    <input type="text" name="title" size="23">
+    <input type="text" name="title" size="23" value="{{ event.title }}">
     <br>
     <label>Task Date</label>
     <br>
-    <input type="datetime-local" name="dt_event">
+    <input type="datetime-local" name="dt_event" value="{{ event.get_dt_input_event }}">
     <br>
     <label>Describe</label>
     <br>
-    <textarea name="describe" rows="5" cols="24"></textarea>
+    <textarea name="describe" rows="5" cols="24">{{ event.describe }}</textarea>
+    <br>
+    <label>Locale</label>
+    <br>
+    <textarea name="locale"></textarea>
     <br>
     <br>
     <button type="submit">Save</button>
